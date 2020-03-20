@@ -20,7 +20,7 @@ class CopyToClipboardWidget extends Widget
      * @var array Copy Btn Options
      */
     public $copyBtnOptions = [
-        'class' => ['d-flex', 'align-items-center']
+        'class' => ['d-flex', 'align-items-center', 'ml-2']
     ];
 
     /**
@@ -80,12 +80,12 @@ class CopyToClipboardWidget extends Widget
     protected function registerJs()
     {
         $js = <<<JS
-$(document).on('click','#{$this->copyBtnId}', (event) => {
+$(document).on('click','#{$this->copyBtnId}', function(event) {
     event.preventDefault();
-    let temp = $("<input>");
+    let temp = $("<input>").css({position: 'absolute'});
     let text = $('#{$this->contentId}').text();
     let copied_icon = $('#{$this->copiedIconId}');
-    $("body").append(temp);
+    $(this).parent().append(temp);
     temp.val(text).select();
     if (document.execCommand("copy")) {
         copied_icon.show();
