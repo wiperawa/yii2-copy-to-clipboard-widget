@@ -20,7 +20,7 @@ class CopyToClipboardWidget extends Widget
      * @var array Copy Btn Options
      */
     public $copyBtnOptions = [
-        'class' => ['d-flex', 'align-items-center']
+        'class' => ['d-flex', 'align-items-center', 'ml-2']
     ];
 
     /**
