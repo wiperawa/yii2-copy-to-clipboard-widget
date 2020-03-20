@@ -1,0 +1,24 @@
+{
+	"name": "wiperawa/yii2-copy-to-clipboard-widget",
+	"description": "Simple widget with copy to clipboard button",
+	"keywords": ["yii2", "extension", "widget", "copy to clipboard", "clipboard"],
+	"type": "yii2-extension",
+	"license": "MIT",
+	"support": {
+		"issues": "https://github.com/wiperawa/yii2-copy-to-clipboard-widget/issues",
+		"wiki": "https://github.com/wiperawa/yii2-copy-to-clipboard-widget/wiki/",
+		"source": "https://github.com/wiperawa/yii2-copy-to-clipboard-widget"
+	},
+	"authors": [
+		{
+			"name": "Dmitriy Lukeryanov",
+			"email": "wiperawa@gmail.com"
+		}
+	],
+	"require": {
+		"yiisoft/yii2": "*"
+	},
+	"autoload": {
+		"psr-4": { "wiperawa\\copytoclipboard\\": "" }
+	}
+}
