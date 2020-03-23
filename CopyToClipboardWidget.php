@@ -4,7 +4,7 @@ namespace wiperawa\copytoclipboard;
 
 use yii\base\Widget;
 use yii\helpers\Html;
-
+use yii\helpers\ArrayHelper;
 
 class CopyToClipboardWidget extends Widget
 {
@@ -12,16 +12,12 @@ class CopyToClipboardWidget extends Widget
     /**
      * @var array Widget Container Options
      */
-    public $containerOptions = [
-        'class' => 'd-inline-flex'
-    ];
+    public $containerOptions = [];
 
     /**
      * @var array Copy Btn Options
      */
-    public $copyBtnOptions = [
-        'class' => ['d-flex', 'align-items-center', 'ml-2']
-    ];
+    public $copyBtnOptions = [];
 
     /**
      * @var string Copy button icon
@@ -38,6 +34,21 @@ class CopyToClipboardWidget extends Widget
      */
     public $content;
 
+    /**
+     * Default copyBtn options
+     * @var array
+     */
+    protected $copyBtnDefaultOptions = [
+        'class' => ['d-flex', 'align-items-center', 'ml-2']
+    ];
+
+    /**
+     * Default container options
+     * @var array
+     */
+    protected $containerDefaultOptions = [
+        'class' => 'd-inline-flex'
+    ];
 
     protected $contentId;
     protected $copyBtnId;
@@ -66,9 +77,9 @@ class CopyToClipboardWidget extends Widget
                 $this->copyBtnIcon .
                 Html::tag('span', $this->copiedIcon, ['id' => $this->copiedIconId, 'style' => ['display' => 'none']]),
                 '#',
-                array_merge(['id' => $this->copyBtnId], $this->copyBtnOptions)
+                ArrayHelper::merge(['id' => $this->copyBtnId], $this->copyBtnDefaultOptions, $this->copyBtnOptions)
             ),
-            array_merge(['id' => $this->getId()], $this->containerOptions));
+            ArrayHelper::merge(['id' => $this->getId()], $this->containerDefaultOptions, $this->containerOptions));
 
         $this->registerJs();
     }
